@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  lotus-explorer-db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=lotus_explorer
+      - POSTGRES_PASSWORD=lotus_pwd
+      - POSTGRES_DB=lotus-explorer-db
+    ports:
+      - '5435:5432'
+    volumes: 
+      - lotus-explorer-db-data:/var/lib/postgresql/data
+volumes:
+  lotus-explorer-db-data:
+  
